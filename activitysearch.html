@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Activity Search - oddo1</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans & Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from system prompt -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-high": "#efe6e3",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1e1b19",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#ffb59e",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#d2e5ca",
+                        "on-secondary-container": "#566751",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#b9ccb1",
+                        "on-primary-fixed-variant": "#7a2f15",
+                        "tertiary-container": "#99917b",
+                        "on-surface-variant": "#55433d",
+                        "on-secondary-fixed": "#101f0e",
+                        "tertiary-fixed": "#ece2c9",
+                        "surface-container": "#f5ece9",
+                        "on-tertiary-container": "#2f2a1a",
+                        "surface-bright": "#fff8f6",
+                        "tertiary-fixed-dim": "#cfc6ae",
+                        "surface-variant": "#e9e1de",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#52634d",
+                        "surface-container-highest": "#e9e1de",
+                        "on-tertiary-fixed-variant": "#4c4634",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#1e1b19",
+                        "outline": "#88726c",
+                        "background": "#fff8f6",
+                        "surface-tint": "#99462a",
+                        "primary": "#99462a",
+                        "on-primary-container": "#541400",
+                        "on-primary-fixed": "#390b00",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#ffdbd0",
+                        "on-tertiary-fixed": "#201b0c",
+                        "outline-variant": "#dbc1b9",
+                        "secondary-fixed": "#d5e8cc",
+                        "surface-dim": "#e1d8d5",
+                        "primary-container": "#d97757",
+                        "error": "#ba1a1a",
+                        "surface": "#fff8f6",
+                        "tertiary": "#645e4b",
+                        "surface-container-low": "#fbf2ef",
+                        "inverse-surface": "#342f2e",
+                        "on-secondary-fixed-variant": "#3b4b37",
+                        "inverse-on-surface": "#f8efec",
+                        "primary-fixed-dim": "#ffb59e"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "stack-lg": "48px",
+                        "unit": "8px",
+                        "stack-sm": "12px",
+                        "margin-mobile": "20px",
+                        "stack-md": "24px",
+                        "container-max": "1200px",
+                        "safe-bottom": "env(safe-area-inset-bottom, 20px)",
+                        "safe-top": "env(safe-area-inset-top, 0px)"
+                    },
+                    fontFamily: {
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+                        "headline-lg-mobile": ["28px", { lineHeight: "34px", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "16px", fontWeight: "600" }],
+                        "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Hide scrollbar for clean horizontal scrolling */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen pt-[72px] pb-[100px] md:pb-0 antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar (From JSON) -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl fixed top-0 w-full z-50 shadow-sm pt-[env(safe-area-inset-top)] border-b border-outline-variant/30">
+<div class="flex items-center justify-between px-margin-mobile py-4 w-full max-w-container-max mx-auto">
+<!-- Leading Avatar -->
+<button class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0 border border-outline-variant/50 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a smiling young woman with dark curly hair wearing a stylish sun hat, natural sunlight, shallow depth of field, warm inviting travel aesthetic, high quality lifestyle photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArF8Z33TxyLlmqqg0cLuVe0OHWcGcHTu10En1i9O788_cmc3weNuCJQO713W0QMEhJDt2Lvd5KSNhvBYyuAfbPnvUDOEcoRncz0sML_AI31KbOq9uTxTyJXct_udFFqzJMHINJRruu5r63LBN0imG-ML_lqRadQJmT6FqRqKHpYB8fDWKUEJkxyItUuLlDSn-YyGYXvFYfB2A_xNodr4RVa29zRvFq3c0zo7ZjWLlQtSwWIRwTof9S"/>
+</button>
+<!-- Headline (Brand Logo) -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg tracking-tight text-primary dark:text-primary-fixed-dim truncate px-4">
+                oddo1
+            </h1>
+<!-- Trailing Icon -->
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors scale-95 active:scale-90 transition-transform focus:outline-none focus:ring-2 focus:ring-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-md flex flex-col gap-stack-lg">
+<!-- Search & Filter Section -->
+<section class="flex flex-col gap-stack-md pt-stack-sm">
+<!-- Search Bar -->
+<div class="relative w-full max-w-2xl mx-auto shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-full">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline" style="font-variation-settings: 'FILL' 0;">search</span>
+</div>
+<input class="w-full bg-[#F2E8CF] text-on-surface-variant placeholder:text-outline/70 border border-transparent focus:border-primary focus:ring-0 rounded-full py-4 pl-12 pr-4 font-body-md text-body-md transition-colors shadow-sm outline-none" placeholder="Search experiences in Rome..." type="text"/>
+</div>
+<!-- Filter Chips (Horizontal Scrollable) -->
+<div class="flex overflow-x-auto hide-scrollbar gap-unit py-unit px-2 -mx-2 snap-x snap-mandatory">
+<button class="snap-start shrink-0 bg-primary-container text-on-primary-container font-label-md text-label-md px-4 py-2 rounded-full border border-transparent shadow-[0_4px_12px_rgba(153,70,42,0.15)] transition-transform active:scale-95">
+                    All Activities
+                </button>
+<button class="snap-start shrink-0 bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md px-4 py-2 rounded-full border border-outline-variant/50 transition-colors active:scale-95">
+                    Sightseeing
+                </button>
+<button class="snap-start shrink-0 bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md px-4 py-2 rounded-full border border-outline-variant/50 transition-colors active:scale-95">
+                    Food Tours
+                </button>
+<button class="snap-start shrink-0 bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md px-4 py-2 rounded-full border border-outline-variant/50 transition-colors active:scale-95">
+                    Adventure
+                </button>
+<button class="snap-start shrink-0 bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md px-4 py-2 rounded-full border border-outline-variant/50 transition-colors active:scale-95">
+                    Nature
+                </button>
+<button class="snap-start shrink-0 bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md px-4 py-2 rounded-full border border-outline-variant/50 transition-colors active:scale-95">
+                    Nightlife
+                </button>
+</div>
+</section>
+<!-- Header for Results -->
+<div class="flex items-center justify-between mt-stack-sm mb-unit">
+<h2 class="font-headline-md text-headline-md text-on-background">Curated for you</h2>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1 hover:opacity-80 transition-opacity">
+                Filters <span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+<!-- Activity Cards Grid (Bento-ish/Asymmetric on larger screens) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/40 flex flex-col transition-transform hover:-translate-y-1 duration-300">
+<div class="relative w-full h-56 md:h-64 overflow-hidden">
+<img alt="Pasta Making" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A warm, inviting rustic Italian kitchen in Rome, a chef's hands dusting flour over fresh homemade pasta dough on a wooden table, soft golden hour sunlight filtering through a window, authentic travel photography, rich earthy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvIR4iy4yd4LfuuOdUCM-OWvLn4QOQqlUVNkBwks47YaxwIEG4j_ItI8BZvtHqSsvqjFPLg3vWhnEHryB5rd250NDoWxJwjQz90d9vSStkuPYkuasP0p7w21GWV8EFAI1u83DIwvD8Z7uunsu87usfzod7Eyw2LnPl8eIWJVh90-DdrBNg6AnubwciwYov7Zn04snMcuEInfcKQIDC9pB0w_AcTHBUi75v8pR0PSHFDxvRyyMD-XBh"/>
+<!-- Top Right Tags -->
+<div class="absolute top-3 right-3 flex gap-2">
+<span class="bg-secondary-container/90 backdrop-blur-md text-on-secondary-container font-label-sm text-label-sm px-2 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">restaurant</span> Food
+                        </span>
+</div>
+</div>
+<div class="flex flex-col p-4 flex-grow bg-white/60 backdrop-blur-xl">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-background leading-tight">Authentic Pasta Making Class</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Roll up your sleeves in a traditional Trastevere kitchen. Learn the secrets of perfect dough and sauce from a local nonna.</p>
+<div class="flex items-center gap-4 mb-4 text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 3h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">payments</span> $$</span>
+<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9</span>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Trastevere, Rome</span>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-5 py-2 rounded-full hover:bg-primary/90 active:scale-95 transition-all shadow-[0_4px_14px_rgba(153,70,42,0.3)]">
+                            Add to Trip
+                        </button>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/40 flex flex-col transition-transform hover:-translate-y-1 duration-300">
+<div class="relative w-full h-56 md:h-64 overflow-hidden">
+<img alt="Vatican Museums" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Wide shot of the stunning interior of the Vatican Museums, ornate gold vaulted ceilings, intricate Renaissance frescoes, soft diffused natural light from high windows, peaceful atmosphere, premium architectural travel photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2MrI0HdqXsounK2vCCRUf3CcfFCpV6Aut4BDFRUq2TQYT3ltFWekbqBg9gM2xkM-kNOunaoxX7_7gCjeFy_HGVysts4IVopSJZ_BNDRc-rIf9Hll4Lf-JPHY67hP-EF9qBNAOarD2pzS3JfEaq1FrJzImE_9AqCbCBzcljss0rPjfzXbByBQTDZd_LobnYu3tXUU8fayX6po0S7XDNyy624T2H1eV1aLvh1CBNWnhr7YMCrMqqX8F"/>
+<div class="absolute top-3 right-3 flex gap-2">
+<span class="bg-surface-bright/90 backdrop-blur-md text-primary font-label-sm text-label-sm px-2 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span> Popular
+                        </span>
+<span class="bg-tertiary-container/90 backdrop-blur-md text-on-tertiary-container font-label-sm text-label-sm px-2 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">museum</span> Culture
+                        </span>
+</div>
+</div>
+<div class="flex flex-col p-4 flex-grow bg-white/60 backdrop-blur-xl">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-background leading-tight">Vatican &amp; Sistine Chapel</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Skip the notorious lines and experience the masterpieces of Michelangelo and Raphael with an expert art historian guide.</p>
+<div class="flex items-center gap-4 mb-4 text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 2.5h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">payments</span> $$$</span>
+<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.8</span>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Vatican City</span>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-5 py-2 rounded-full hover:bg-primary/90 active:scale-95 transition-all shadow-[0_4px_14px_rgba(153,70,42,0.3)]">
+                            Add to Trip
+                        </button>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/40 flex flex-col transition-transform hover:-translate-y-1 duration-300 md:col-span-2 lg:col-span-1">
+<div class="relative w-full h-56 md:h-64 overflow-hidden">
+<img alt="Tiber Cruise" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A tranquil scene on the Tiber River in Rome at sunset, a small elegant cruise boat gliding through calm waters reflecting pink and orange skies, silhouettes of historic bridges, cinematic lighting, serene travel mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6u0q0pagBI8iVci0q22ZHc-4vZX1A-ej0-Rr-0DDlAqbTsR_ahiiaoe2VE6RNE23VBqmiRCU_zZb7zZngXB3XOdHPjmHZ042Z1E6ohxaJP6ehMkOsl8T4fbW4qP7iniFK81CJgdENLugNfmJmgsy8P3fdn1Uc7h7ymasX7m4bGuu_jTiVugvHeC_a0o3qmhJ5yUGjqn7LQYanKAPBkavJpmzm0rPspup_piJGWEfEznvB_1u4i-5M"/>
+<div class="absolute top-3 right-3 flex gap-2">
+<span class="bg-secondary-container/90 backdrop-blur-md text-on-secondary-container font-label-sm text-label-sm px-2 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">sailing</span> Leisure
+                        </span>
+</div>
+</div>
+<div class="flex flex-col p-4 flex-grow bg-white/60 backdrop-blur-xl">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-background leading-tight">Tiber River Sunset Cruise</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2 mb-4">Drift past ancient bridges as the sky turns pink. Includes a spread of local appetizers and unlimited prosecco.</p>
+<div class="flex items-center gap-4 mb-4 text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">schedule</span> 1.5h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">payments</span> $$</span>
+<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.7</span>
+</div>
+<div class="mt-auto pt-2 border-t border-outline-variant/20 flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ponte Sant'Angelo</span>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-5 py-2 rounded-full hover:bg-primary/90 active:scale-95 transition-all shadow-[0_4px_14px_rgba(153,70,42,0.3)]">
+                            Add to Trip
+                        </button>
+</div>
+</div>
+</article>
+<!-- Card 4 (Appian Way Bike Tour) -->
+<article class="group relative bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/40 flex flex-col transition-transform hover:-translate-y-1 duration-300 md:col-span-2 lg:col-span-3 lg:grid lg:grid-cols-3">
+<div class="relative w-full h-56 lg:h-auto lg:col-span-1 overflow-hidden">
+<img alt="Appian Way Biking" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Two people riding vintage bicycles along the ancient cobblestone path of the Appian Way near Rome, lined with tall Roman pine trees and ancient ruins, golden afternoon sunlight filtering through leaves, active outdoor travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7yB0tYz9NB_iVe8AXWc0KCsCvC72cCZidRdFBSNHNd-ybQ19gxZKnlhPdZsZlH_YwwJUhKrFFv7eaHNS48QCjKYIOMuFs8Ou67xQS3DLTiK4xcON0pL6yKIB8-qh3BP7ro3-qzUtKzf7Gj4UEaK8spsUyA8DObBdrvLw8F8-k0bNjP1bvzhSmQnsB5KYosV6coVC-MSlNDcFKzKOfcbOtOyohE8awiiV9lgQVRsUCouAcAzgGZdDU"/>
+<div class="absolute top-3 right-3 flex gap-2 lg:hidden">
+<span class="bg-tertiary-container/90 backdrop-blur-md text-on-tertiary-container font-label-sm text-label-sm px-2 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">directions_bike</span> Adventure
+                        </span>
+</div>
+</div>
+<div class="flex flex-col p-4 md:p-6 lg:col-span-2 flex-grow bg-white/60 backdrop-blur-xl justify-center">
+<div class="hidden lg:flex gap-2 mb-3">
+<span class="bg-tertiary-container/90 text-on-tertiary-container font-label-sm text-label-sm px-2 py-1 rounded-full flex items-center gap-1 shadow-sm w-fit">
+<span class="material-symbols-outlined text-[14px]">directions_bike</span> Adventure
+                        </span>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-background leading-tight lg:text-3xl">Appian Way E-Bike Tour</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3 mb-4 lg:mb-6 max-w-2xl">Escape the city bustle and pedal through history on Rome's oldest highway. Glide past ancient aqueducts, catacombs, and rolling countryside on comfortable e-bikes.</p>
+<div class="flex items-center gap-6 mb-4 lg:mb-6 text-on-surface-variant font-label-md text-label-md">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">schedule</span> 4h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">payments</span> $$</span>
+<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9</span>
+</div>
+<div class="mt-auto pt-4 border-t border-outline-variant/20 flex justify-between items-center max-w-2xl">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">location_on</span> Via Appia Antica
+                        </span>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2.5 rounded-full hover:bg-primary/90 active:scale-95 transition-all shadow-[0_4px_14px_rgba(153,70,42,0.3)]">
+                            Add to Trip
+                        </button>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (From JSON - Rendered for Mobile/Destination) -->
+<!-- Active Tab Logic: User is searching for activities, so 'Explore' is active -->
+<nav class="bg-surface-bright/70 dark:bg-surface-container-highest/70 backdrop-blur-2xl fixed bottom-0 w-full rounded-t-xl z-50 border-t border-white/20 shadow-[0_-4px_20px_0_rgba(153,70,42,0.1)] md:hidden">
+<div class="flex justify-around items-center h-20 px-4 pb-safe w-full">
+<!-- Explore (ACTIVE) -->
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-sm text-label-sm">Explore</span>
+</button>
+<!-- My Trips (INACTIVE) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:opacity-80 active:scale-90 transition-all duration-300 ease-out px-4 py-1">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">map</span>
+<span class="font-label-sm text-label-sm">My Trips</span>
+</button>
+<!-- Plan (INACTIVE) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:opacity-80 active:scale-90 transition-all duration-300 ease-out px-4 py-1">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">add_circle</span>
+<span class="font-label-sm text-label-sm">Plan</span>
+</button>
+<!-- Profile (INACTIVE) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:opacity-80 active:scale-90 transition-all duration-300 ease-out px-4 py-1">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</div>
+</nav>
+</body></html>
